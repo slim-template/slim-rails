@@ -22,7 +22,28 @@ Gem::Specification.new do |s|
      "LICENSE",
      "README.rdoc",
      "Rakefile",
-     "lib/slim-rails.rb"
+     "lib/generators/slim.rb",
+     "lib/generators/slim/controller/controller_generator.rb",
+     "lib/generators/slim/controller/templates/view.html.slim",
+     "lib/generators/slim/mailer/mailer_generator.rb",
+     "lib/generators/slim/mailer/templates/view.text.slim",
+     "lib/generators/slim/scaffold/scaffold_generator.rb",
+     "lib/generators/slim/scaffold/templates/_form.html.slim",
+     "lib/generators/slim/scaffold/templates/edit.html.slim",
+     "lib/generators/slim/scaffold/templates/index.html.slim",
+     "lib/generators/slim/scaffold/templates/new.html.slim",
+     "lib/generators/slim/scaffold/templates/show.html.slim",
+     "lib/slim-rails.rb",
+     "lib/slim-rails/version.rb",
+     "slim-rails.gemspec",
+     "test/fixtures/routes.rb",
+     "test/lib/generators/slim/controller_generator_test.rb",
+     "test/lib/generators/slim/mailer_generator_test.rb",
+     "test/lib/generators/slim/scaffold_generator_test.rb",
+     "test/lib/generators/slim/testing_helper.rb",
+     "test/test_helper.rb",
+     "tmp/rails/config/routes.rb",
+     "tmp/rails/public/stylesheets/scaffold.css"
   ]
   s.homepage = %q{http://github.com/leogalmeida/slim-rails}
   s.rdoc_options = ["--charset=UTF-8"]
