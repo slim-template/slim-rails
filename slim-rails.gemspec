@@ -9,18 +9,18 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Leonardo Almeida"]
-  s.date = %q{2010-10-28}
+  s.date = %q{2010-11-04}
   s.description = %q{Provide generators for Rails 3}
   s.email = %q{lalmeida08@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+     "README.md"
   ]
   s.files = [
     ".document",
      ".gitignore",
      "LICENSE",
-     "README.rdoc",
+     "README.md",
      "Rakefile",
      "lib/generators/slim/controller/controller_generator.rb",
      "lib/generators/slim/controller/templates/view.html.slim",
