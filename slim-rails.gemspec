@@ -58,6 +58,8 @@ Gem::Specification.new do |s|
      "test/test_helper.rb"
   ]
 
+  spec.add_dependency('slim', '>= 0.9.2')
+  
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
