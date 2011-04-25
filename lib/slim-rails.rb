@@ -1,5 +1,5 @@
 require 'rails'
-require 'slim/rails'
+require 'slim'
 
 module Slim
   module Rails
