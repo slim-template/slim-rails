@@ -6,4 +6,7 @@ To use it, add this line to your Gemfile:
     gem "slim-rails"
 
 And that's it.
+
+From the version 0.2.0, there is no need to include gem "slim" in your Gemfile.
+
 Every time you generate a controller or scaffold, you'll get Slim templates.
