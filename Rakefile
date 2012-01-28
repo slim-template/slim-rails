@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'rake'
 require File.expand_path("../lib/slim-rails/version", __FILE__)
 
