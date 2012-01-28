@@ -1,4 +1,3 @@
-require 'rake'
 require File.expand_path("../lib/slim-rails/version", __FILE__)
 
 require 'rake/testtask'
