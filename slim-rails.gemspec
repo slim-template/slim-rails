@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
 
-  s.name = %q{slim-rails}
   s.version = "0.2.0"
 Gem::Specification.new do |gem|
 
@@ -54,6 +53,7 @@ Gem::Specification.new do |gem|
      "test/lib/generators/slim/testing_helper.rb",
      "test/test_helper.rb"
   ]
+  gem.name          = 'slim-rails'
 
   s.add_dependency('slim', '>= 0.9.2')
   
