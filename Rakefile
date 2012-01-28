@@ -1,3 +1,4 @@
+#!/usr/bin/env rake
 
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
