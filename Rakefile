@@ -1,21 +1,6 @@
 require 'rubygems'
 require 'rake'
 require File.expand_path("../lib/slim-rails/version", __FILE__)
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "slim-rails"
-    gem.version = Slim::Rails::VERSION
-    gem.summary = "Provides generators for Rails 3"
-    gem.description = "Provide generators for Rails 3"
-    gem.email = "lalmeida08@gmail.com"
-    gem.homepage = "http://github.com/leogalmeida/slim-rails"
-    gem.authors = ["Leonardo Almeida"]
-  end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
-end
 
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
