@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
 
-  s.version = "0.2.0"
 Gem::Specification.new do |gem|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -54,6 +53,7 @@ Gem::Specification.new do |gem|
      "test/test_helper.rb"
   ]
   gem.name          = 'slim-rails'
+  gem.version       = Slim::Rails::VERSION
 
   s.add_dependency('slim', '>= 0.9.2')
   
