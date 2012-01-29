@@ -8,14 +8,13 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Provides the generator settings required for Rails 3 to use Slim}
   gem.homepage      = 'http://github.com/leogalmeida/slim-rails'
 
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = 'slim-rails'
+  gem.require_paths = ['lib']
   gem.version       = Slim::Rails::VERSION
 
   s.add_dependency('slim', '>= 0.9.2')
