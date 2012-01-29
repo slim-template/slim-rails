@@ -8,7 +8,6 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Provides the generator settings required for Rails 3 to use Slim}
   gem.homepage      = 'http://github.com/leogalmeida/slim-rails'
 
-  s.require_paths = ["lib"]
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
