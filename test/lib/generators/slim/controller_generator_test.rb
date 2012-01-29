@@ -11,7 +11,7 @@ class Slim::Generators::ControllerGeneratorTest < Rails::Generators::TestCase
 
   test "should invoke template engine" do
     run_generator
-    assert_file "app/views/account/foo.html.slim", %r(app/views/account/foo\.html\.slim)
-    assert_file "app/views/account/bar.html.slim", %r(app/views/account/bar\.html\.slim)
+    assert_file File.join "app", "views", "account", "foo.html.slim", %r(app/views/account/foo\.html\.slim)
+    assert_file File.join "app", "views", "account", "bar.html.slim", %r(app/views/account/bar\.html\.slim)
   end
 end
