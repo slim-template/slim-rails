@@ -15,6 +15,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
   gem.version       = Slim::Rails::VERSION
 
+  gem.add_runtime_dependency 'activesupport', '~> 3.0'
+  gem.add_runtime_dependency 'actionpack',    '~> 3.0'
+  gem.add_runtime_dependency 'railties',      '~> 3.0'
   gem.add_runtime_dependency 'slim', '~> 1.0'
 end
 
