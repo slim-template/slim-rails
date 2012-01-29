@@ -15,7 +15,6 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
   gem.version       = Slim::Rails::VERSION
 
-  s.add_dependency('slim', '>= 0.9.2')
-  
+  gem.add_runtime_dependency 'slim', '~> 1.0'
 end
 
