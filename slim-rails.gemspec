@@ -2,17 +2,16 @@
 require File.expand_path('../lib/slim-rails/version', __FILE__)
 
 Gem::Specification.new do |gem|
+  gem.authors       = ["Leonardo Almeida"]
+  gem.email         = ["lalmeida08@gmail.com"]
+  gem.description   = 'Provides the generator settings required for Rails 3 to use Slim'
+  gem.summary       = %q{Provides the generator settings required for Rails 3 to use Slim}
+  gem.homepage      = 'http://github.com/leogalmeida/slim-rails'
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Leonardo Almeida"]
-  s.date = %q{2010-11-05}
-  s.description = %q{Provide generators for Rails 3}
-  s.email = %q{lalmeida08@gmail.com}
-  s.homepage = %q{http://github.com/leogalmeida/slim-rails}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{Provides generators for Rails 3}
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
