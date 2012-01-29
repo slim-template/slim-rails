@@ -3,10 +3,9 @@ require 'generators/slim/controller/controller_generator'
 module Slim
   module Generators
     class MailerGenerator < ControllerGenerator
-      source_root File.expand_path("../templates", __FILE__)
+      source_root File.expand_path '..', 'templates', __FILE__
 
-    protected
-
+      protected
       def format
         :text
       end
