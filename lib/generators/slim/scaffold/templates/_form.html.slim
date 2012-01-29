@@ -6,7 +6,7 @@
         - @<%= singular_table_name %>.errors.full_messages.each do |msg|
           li= msg
 
-<% for attribute in attributes -%>
+<% attributes.each do |attribute| -%>
   .field
     = f.label :<%= attribute.name %>
     = f.<%= attribute.field_type %> :<%= attribute.name %>

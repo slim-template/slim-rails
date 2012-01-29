@@ -2,7 +2,7 @@ h1 Listing <%= plural_table_name %>
 
 table
   tr
-<% for attribute in attributes -%>
+<% attributes.each do |attribute| -%>
     th <%= attribute.human_name %>
 <% end -%>
     th
@@ -11,8 +11,8 @@ table
 
   - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
     tr
-<% for attribute in attributes -%>
       td= <%= singular_table_name %>.<%= attribute.name %>
+<% attributes.each do |attribute| -%>
 <% end -%>
       td= link_to 'Show', <%= singular_table_name %>
       td= link_to 'Edit', edit_<%= singular_table_name %>_path(<%= singular_table_name %>)
