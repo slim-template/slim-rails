@@ -11,12 +11,12 @@ class Slim::Generators::MailerGeneratorTest < Rails::Generators::TestCase
 
   test "should invoke template engine" do
     run_generator
-    assert_file "app/views/notifier/foo.text.slim" do |view|
+    assert_file File.join "app", "views", "notifier", "foo.text.slim" do |view|
       assert_match %r(app/views/notifier/foo\.text\.slim), view
       assert_match /\= @greeting/, view
     end
 
-    assert_file "app/views/notifier/bar.text.slim" do |view|
+    assert_file File.join "app", "views", "notifier", "bar.text.slim" do |view|
       assert_match %r(app/views/notifier/bar\.text\.slim), view
       assert_match /\= @greeting/, view
     end
