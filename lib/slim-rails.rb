@@ -4,9 +4,9 @@ require 'slim'
 module Slim
   module Rails
     class Railtie < ::Rails::Railtie
-      unless ::Rails.version =~ /$3.1/
+      if config.respond_to?(:generators)
         config.generators.template_engine :slim
-      else
+      elsif config.respond_to?(:app_generators)
         config.app_generators.template_engine :slim
       end
     end
