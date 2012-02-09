@@ -1,5 +1,5 @@
 module Slim
   module Rails
-    VERSION = "1.0.3s"
+    VERSION = "1.0.3"
   end
 end
