@@ -25,6 +25,6 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency 'activesupport', ['>= 3.0', '< 4.1']
   gem.add_runtime_dependency 'actionpack',    ['>= 3.0', '< 4.1']
   gem.add_runtime_dependency 'railties',      ['>= 3.0', '< 4.1']
-  gem.add_runtime_dependency 'slim',          '~> 1.3'
+  gem.add_runtime_dependency 'slim',          ['>= 1.3', '< 2.1']
 end
 
