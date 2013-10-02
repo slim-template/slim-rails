@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["lalmeida08@gmail.com"]
   gem.description   = 'Provides the generator settings required for Rails 3 to use Slim'
   gem.summary       = %q{Provides the generator settings required for Rails 3 to use Slim}
-  gem.homepage      = 'http://github.com/leogalmeida/slim-rails'
+  gem.homepage      = 'https://github.com/slim-template/slim-rails'
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
