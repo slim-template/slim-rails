@@ -7,7 +7,13 @@ module Slim
 
       def copy_view_files
         available_views.each do |view|
-          filename = filename_with_extensions view
+          filename = case method(:filename_with_extensions).arity
+            when 2
+              filename_with_extensions view,'html'
+            else
+              filename_with_extensions view
+            end
+
           template "#{view}.html.slim", File.join('app', 'views', controller_file_path, filename)
         end
       end
