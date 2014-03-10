@@ -7,7 +7,7 @@ module Slim
 
       def copy_view_files
         available_views.each do |view|
-          filename = filename_with_extensions view
+          filename = filename_with_extensions view, :html
           template "#{view}.html.slim", File.join('app', 'views', controller_file_path, filename)
         end
       end
