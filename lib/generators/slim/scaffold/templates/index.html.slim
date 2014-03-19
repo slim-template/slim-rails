@@ -1,14 +1,15 @@
 h1 Listing <%= plural_table_name %>
 
 table
-  tr
+  thead
+    tr
 <% attributes.each do |attribute| -%>
-    th <%= attribute.human_name %>
+      th <%= attribute.human_name %>
 <% end -%>
-    th
-    th
-    th
-
+      th
+      th
+      th
+  tbody
   - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
     tr
 <% attributes.each do |attribute| -%>
