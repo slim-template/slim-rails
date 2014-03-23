@@ -1,22 +1,24 @@
 h1 Listing <%= plural_table_name %>
 
 table
-  tr
-<% attributes.each do |attribute| -%>
-    th <%= attribute.human_name %>
-<% end -%>
-    th
-    th
-    th
-
-  - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+  thead
     tr
 <% attributes.each do |attribute| -%>
-      td = <%= singular_table_name %>.<%= attribute.name %>
+      th <%= attribute.human_name %>
 <% end -%>
-      td = link_to 'Show', <%= singular_table_name %>
-      td = link_to 'Edit', edit_<%= singular_table_name %>_path(<%= singular_table_name %>)
-      td = link_to 'Destroy', <%= singular_table_name %>, data: {:confirm => 'Are you sure?'}, :method => :delete
+      th
+      th
+      th
+
+  tbody
+    - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+      tr
+<% attributes.each do |attribute| -%>
+        td = <%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
+        td = link_to 'Show', <%= singular_table_name %>
+        td = link_to 'Edit', edit_<%= singular_table_name %>_path(<%= singular_table_name %>)
+        td = link_to 'Destroy', <%= singular_table_name %>, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
