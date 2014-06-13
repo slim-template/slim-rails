@@ -3,14 +3,18 @@ require 'slim'
 
 module Slim
   module Rails
-    class Railtie < ::Rails::Railtie              
+    class Railtie < ::Rails::Railtie
       if ::Rails.version.to_s >= '3.1'
-        config.app_generators.template_engine :slim        
+        config.app_generators.template_engine :slim
       else
         config.generators.template_engine :slim
       end
 
-      initializer 'slim_rails.configure_template_digestor' do
+      initializer 'slim_rails.configure_template_digestor' do |app|
+        if app.assets && app.assets.respond_to?(:register_engine)
+          app.assets.register_engine '.slim', Slim::Template
+        end
+
         ActiveSupport.on_load(:action_view) do
           ActiveSupport.on_load(:after_initialize) do
             begin
