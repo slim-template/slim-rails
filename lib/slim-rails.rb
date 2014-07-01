@@ -1,3 +1,4 @@
+require 'slim-rails/version'
 require 'rails'
 require 'slim'
 
