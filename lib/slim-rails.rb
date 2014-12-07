@@ -11,6 +11,8 @@ module Slim
         config.generators.template_engine :slim
       end
 
+      Slim::Engine.set_options pretty: ::Rails.env.development?, sort_attrs: ::Rails.env.development?
+
       initializer 'slim_rails.configure_template_digestor' do |app|
         if app.assets && app.assets.respond_to?(:register_engine)
           app.assets.register_engine '.slim', Slim::Template
