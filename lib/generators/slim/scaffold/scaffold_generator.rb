@@ -12,7 +12,7 @@ module Slim
         end
       end
 
-      hook_for :form_builder, :as => :scaffold
+      hook_for :form_builder, as: :scaffold
 
       protected
       def available_views

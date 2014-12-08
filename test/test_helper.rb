@@ -40,8 +40,8 @@ end
 
 def generator_list
   {
-    :rails        => ['scaffold', 'controller', 'mailer'],
-    :slim         => ['scaffold', 'controller', 'mailer']
+    rails: ['scaffold', 'controller', 'mailer'],
+    slim: ['scaffold', 'controller', 'mailer']
   }
 end
 

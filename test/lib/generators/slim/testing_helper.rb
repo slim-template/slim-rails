@@ -1,1 +1,1 @@
-require_generators :slim => ['scaffold', 'controller', 'mailer']
+require_generators slim: ['scaffold', 'controller', 'mailer']

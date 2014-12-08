@@ -18,7 +18,7 @@ class Slim::Generators::ScaffoldGeneratorTest < Rails::Generators::TestCase
 
   test "should revoke template engine" do
     run_generator
-    run_generator ["product_line", "--orm", "active-record"], :behavior => :revoke
+    run_generator ["product_line", "--orm", "active-record"], behavior: :revoke
 
     assert_no_file File.join "app", "views", "product_lines"
     assert_no_file File.join "app", "views", "layouts", "product_lines.html.slim"

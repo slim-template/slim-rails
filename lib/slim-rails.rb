@@ -5,11 +5,7 @@ require 'slim'
 module Slim
   module Rails
     class Railtie < ::Rails::Railtie
-      if ::Rails.version.to_s >= '3.1'
-        config.app_generators.template_engine :slim
-      else
-        config.generators.template_engine :slim
-      end
+      config.app_generators.template_engine :slim
 
       initializer 'slim_rails.configure_template_digestor' do |app|
         if app.assets && app.assets.respond_to?(:register_engine)
