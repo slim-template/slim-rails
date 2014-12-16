@@ -1,4 +1,5 @@
-require 'test/unit'
+require 'rubygems'
+require 'minitest/autorun'
 require 'rails/all'
 require 'rails/generators'
 require 'rails/generators/test_case'
@@ -15,7 +16,9 @@ module Rails
 end
 Rails.application.config.root = Rails.root
 
-Dir[File.join File.dirname(__FILE__), 'support', '**', '*.rb'].each {|f| require f}
+Rails::Generators.configure! Rails.application.config.generators
+
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 def copy_routes
   routes = File.expand_path(File.join(File.dirname(__FILE__), 'fixtures', 'routes.rb'))
@@ -24,15 +27,6 @@ def copy_routes
   FileUtils.cp File.expand_path(routes), destination
 end
 
-# Asserts the given class exists in the given content. When a block is given,
-# it yields the content of the class.
-#
-#   assert_file "test/functional/accounts_controller_test.rb" do |controller_test|
-#     assert_class "AccountsControllerTest", controller_test do |klass|
-#       assert_match /context "index action"/, klass
-#     end
-#   end
-#
 def assert_class(klass, content)
   assert content =~ /class #{klass}(\(.+\))?(.*?)\nend/m, "Expected to have class #{klass}"
   yield $2.strip if block_given?
