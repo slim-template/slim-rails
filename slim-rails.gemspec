@@ -23,10 +23,10 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'guard', '~> 2.10'
   gem.add_development_dependency 'guard-minitest', '~> 2.3'
   gem.add_development_dependency 'guard-rocco', ['>= 0.0.3', '< 1.0.0']
-  gem.add_runtime_dependency 'activesupport', ['>= 3.0', '< 4.2']
-  gem.add_runtime_dependency 'actionpack',    ['>= 3.0', '< 4.2']
-  gem.add_runtime_dependency 'actionmailer',  ['>= 3.0', '< 4.2']
-  gem.add_runtime_dependency 'railties',      ['>= 3.0', '< 4.2']
+  gem.add_runtime_dependency 'activesupport', ['>= 3.0', '< 5.0']
+  gem.add_runtime_dependency 'actionpack',    ['>= 3.0', '< 5.0']
+  gem.add_runtime_dependency 'actionmailer',  ['>= 3.0', '< 5.0']
+  gem.add_runtime_dependency 'railties',      ['>= 3.0', '< 5.0']
   gem.add_runtime_dependency 'slim',          '~> 3.0'
 end
 
