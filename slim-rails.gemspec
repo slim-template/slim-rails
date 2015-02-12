@@ -28,5 +28,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency 'actionmailer',  ['>= 3.1', '< 5.0']
   gem.add_runtime_dependency 'railties',      ['>= 3.1', '< 5.0']
   gem.add_runtime_dependency 'slim',          '~> 3.0'
+  gem.add_dependency "html2slim",     [">= 0.1.1"]
+
 end
 
