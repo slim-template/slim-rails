@@ -35,6 +35,17 @@ module Slim
           end
         end
       end
+      if Gem::Requirement.new(">= 4.2").satisfied_by?(Gem::Version.new(::Rails.version))
+        initializer 'slim_rails.configure_source_annotation' do
+          SourceAnnotationExtractor::Annotation.register_extensions('slim') do |tag|
+            /\s*-#\s*(#{tag}):?\s*(.*)/
+          end
+        end
+      end
+      
+      rake_tasks do
+        load 'tasks/erb2slim.rake'
+      end
     end
   end
 end

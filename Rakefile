@@ -1,5 +1,6 @@
 #!/usr/bin/env rake
 require 'bundler'
+require 'rubygems'
 Bundler::GemHelper.install_tasks
 
 require 'rake/testtask'
