@@ -5,9 +5,7 @@ Slim-rails provides Slim generators for Rails 4. It also enables Slim as the tem
 
 To use it, add this line to your Gemfile:
 
-    ```ruby
-gem "slim-rails"
-```
+``` gem "slim-rails" ```
 
 
 This ensures that:
