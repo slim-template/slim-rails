@@ -29,9 +29,9 @@ to `app/views/layouts/application.html.slim` using this command:
 
 After the application layout file is converted successfully,
 make sure to delete `app/views/layouts/application.html.erb`, so Rails can
-start using `app/views/layouts/application.html.haml` instead.
+start using `app/views/layouts/application.html.slim` instead.
 
-### Converting all .erb views to slim format
+### Converting all .erb views to .slim format
 
 If you want to convert all of your .erb views into .slim, you can do so using the following command:
 
