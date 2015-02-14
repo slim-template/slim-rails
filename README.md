@@ -19,7 +19,7 @@ This ensures that:
 
 Yes it does the same thing as haml-rails but better because well... slim beats haml anyday.
 
-### Converting Rails application layout file to haml format
+### Converting Rails application layout file to slim format
 
 Once Slim-rails is installed on the Rails application,
 you can convert the erb layout file, `app/views/layouts/application.html.erb`
