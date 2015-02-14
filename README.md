@@ -17,7 +17,7 @@ This ensures that:
   automatically
 * Slim templates will be respected by the view template cache digestor
 
-Yes it does the same thing as haml-rails but better because well... slim beats haml anyday.
+Pretty fancy, eh? The modern world is just so amazing.
 
 ### Converting Rails application layout file to slim format
 
