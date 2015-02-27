@@ -21,3 +21,14 @@ And that's it.
 From the version 0.2.0, there is no need to include gem "slim" in your Gemfile.
 
 Every time you generate a controller or scaffold, you'll get Slim templates.
+
+__Pretty mode is enabled in development!__
+
+Since 3.0 Slim works in pretty mode in development, but remains `pretty: false` in all other environments. This is useful for debugging, but can lead to different page renderings between environments (missing whitespaces in production).
+
+You can disable pretty mode for all environments by creating `config/initializers/slim.rb` with
+```ruby
+Slim::Engine.set_options(
+  pretty:     false,
+)
+```
