@@ -38,6 +38,3 @@ module Slim
     end
   end
 end
-
-Slim::Engine.set_options pretty: Rails.env.development?
-
