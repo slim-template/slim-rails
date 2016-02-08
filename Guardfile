@@ -13,8 +13,4 @@ guard 'minitest' do
   # watch(%r|^spec/spec_helper\.rb|)    { "spec" }
 end
 
-guard 'rocco' do
-  watch(%r{^lib/.*\.rb$})
-end
-
 watch(%r|^benchmarks/(.*)\.rb$|)     { |m| eval File.read "benchmarks/#{m[1]}.rb" }
