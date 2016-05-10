@@ -27,7 +27,6 @@ module Slim
                 # will only apply if Rails 4, which includes 'action_view/dependency_tracker'
                 require 'action_view/dependency_tracker'
                 ActionView::DependencyTracker.register_tracker :slim, ActionView::DependencyTracker::ERBTracker
-                ActionView::Base.cache_template_loading = false if ::Rails.env.development?
               end
             rescue
               # likely this version of Rails doesn't support dependency tracking
