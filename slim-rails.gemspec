@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
   gem.version       = Slim::Rails::VERSION
 
-  gem.required_ruby_version = '>= 1.9.3'
+  gem.required_ruby_version = '>= 2.0.0'
 
   gem.add_development_dependency 'rake', '~> 10.4'
   gem.add_development_dependency 'rocco', '~> 0.8'
