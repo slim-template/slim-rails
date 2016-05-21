@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Leonardo Almeida"]
   spec.email         = ["lalmeida08@gmail.com"]
 
-  spec.summary       = 'Slim templates generator for Rails 3 and 4'
-  spec.description   = 'Provides the generator settings required for Rails 3 and 4 to use Slim'
+  spec.summary       = 'Slim templates generator for Rails 3+'
+  spec.description   = 'Provides the generator settings required for Rails 3+ to use Slim'
   spec.homepage      = 'https://github.com/slim-template/slim-rails'
   spec.license       = 'MIT'
 
