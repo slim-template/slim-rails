@@ -25,10 +25,9 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'railties',   ['>= 3.1', '< 5.0']
   spec.add_runtime_dependency 'slim',       ['~> 3.0']
 
-  spec.add_development_dependency 'rake', '~> 10.4'
-  spec.add_development_dependency 'rocco', '~> 0.8'
-  spec.add_development_dependency 'redcarpet', '~> 3.2'
-  spec.add_development_dependency 'awesome_print', '~> 1.2'
+  spec.add_development_dependency 'rocco'
+  spec.add_development_dependency 'redcarpet'
+  spec.add_development_dependency 'awesome_print'
   spec.add_development_dependency 'actionmailer', ['>= 3.1']
 
 end
