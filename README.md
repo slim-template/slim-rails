@@ -1,6 +1,6 @@
 # slim-rails
 
-slim-rails provides Slim generators for Rails 3 and 4. It was based on
+slim-rails provides Slim generators for Rails 3+. It was based on
 [haml-rails](http://github.com/indirect/haml-rails) and it does basically the
 same:
 
