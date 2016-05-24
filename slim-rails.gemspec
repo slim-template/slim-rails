@@ -29,5 +29,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'redcarpet'
   spec.add_development_dependency 'awesome_print'
   spec.add_development_dependency 'actionmailer', ['>= 3.1']
-
+  spec.add_development_dependency 'appraisal'
 end
