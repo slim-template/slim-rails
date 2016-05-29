@@ -32,16 +32,16 @@ class Slim::Generators::MailerGeneratorTest < Rails::Generators::TestCase
         assert_match /\= @greeting/, view
       end
 
-    else
-      assert_file file.join "app", "views", "notifier", "foo.text.slim" do |view|
-        assert_match %r(app/views/notifier/foo\.text\.slim), view
-        assert_match /\= @greeting/, view
-      end
+    end
 
-      assert_file file.join "app", "views", "notifier", "bar.text.slim" do |view|
-        assert_match %r(app/views/notifier/bar\.text\.slim), view
-        assert_match /\= @greeting/, view
-      end
+    assert_file "app/views/notifier/foo.text.slim" do |view|
+      assert_match %r(app/views/notifier/foo\.text\.slim), view
+      assert_match /@greeting/, view
+    end
+
+    assert_file "app/views/notifier/bar.text.slim" do |view|
+      assert_match %r(app/views/notifier/bar\.text\.slim), view
+      assert_match /@greeting/, view
     end
   end
 end
