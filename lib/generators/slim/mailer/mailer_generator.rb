@@ -1,34 +1,9 @@
-require 'generators/slim/controller/controller_generator'
+require 'rails/generators/erb/mailer/mailer_generator'
 
 module Slim
   module Generators
-    class MailerGenerator < ControllerGenerator
+    class MailerGenerator < Erb::Generators::MailerGenerator
       source_root File.expand_path(File.join('..', 'templates'), __FILE__)
-
-      def copy_view_files
-        if ::Rails.version.to_s >= "4.2.0"
-          view_base_path = File.join("app/views", class_path, file_name)
-          empty_directory view_base_path
-
-          if self.behavior == :invoke
-            formats.each do |format|
-              layout_path = File.join("app/views/layouts", filename_with_extensions("mailer", format))
-              template filename_with_extensions(:layout, format), layout_path
-            end
-          end
-
-          actions.each do |action|
-            @action = action
-
-            formats.each do |format|
-              @path = File.join(view_base_path, filename_with_extensions(action, format))
-              template filename_with_extensions(:view, format), @path
-            end
-          end
-        else
-          super
-        end
-      end
 
       protected
       def format
@@ -39,6 +14,9 @@ module Slim
         [:text, :html]
       end
 
+      def handler
+        :slim
+      end
     end
   end
 end
