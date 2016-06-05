@@ -1,8 +1,8 @@
-require 'generators/slim/controller/controller_generator'
+require 'rails/generators/erb/mailer/mailer_generator'
 
 module Slim
   module Generators
-    class MailerGenerator < ControllerGenerator
+    class MailerGenerator < Erb::Generators::MailerGenerator
       source_root File.expand_path(File.join('..', 'templates'), __FILE__)
 
       protected
@@ -10,6 +10,13 @@ module Slim
         :text
       end
 
+      def formats
+        [:text, :html]
+      end
+
+      def handler
+        :slim
+      end
     end
   end
 end
