@@ -8,8 +8,10 @@ module Slim
       config.app_generators.template_engine :slim
 
       initializer 'slim_rails.configure_template_digestor' do |app|
-        if app.assets && app.assets.respond_to?(:register_engine)
-          app.assets.register_engine '.slim', Slim::Template
+        if config.respond_to?(:assets)
+          config.assets.configure do |env|
+            env.assets.register_engine '.slim', Slim::Template
+          enda
         end
 
         ActiveSupport.on_load(:action_view) do
