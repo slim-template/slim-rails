@@ -11,7 +11,7 @@ module Slim
         if config.respond_to?(:assets)
           config.assets.configure do |env|
             env.assets.register_engine '.slim', Slim::Template
-          enda
+          end
         end
 
         ActiveSupport.on_load(:action_view) do
