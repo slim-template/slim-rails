@@ -11,6 +11,8 @@ gemfile:
   - gemfiles/rails_4.gemfile
   - gemfiles/rails_4.1.gemfile
   - gemfiles/rails_4.2.gemfile
+allow_failures:
+  - rvm: ruby-head
 addons:
   code_climate:
     repo_token: 294f0ec8183176c0259b75eb21b38414508616985a7b39fc48fec9dfcf40a52e
