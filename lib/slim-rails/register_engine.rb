@@ -12,15 +12,18 @@ module Slim
       private
 
       def self.register_engine3(app, _config)
-        if app.assets && app.assets.respond_to?(:register_engine)
-          app.assets.register_engine('.slim', Slim::Template)
-        end
+        return unless app.assets
+        return unless app.assets.respond_to?(:register_engine)
+
+        app.assets.register_engine('.slim', Slim::Template)
       end
 
       def self.register_engine4(_app, config)
+        return unless config.respond_to?(:assets)
+
         config.assets.configure do |env|
           env.register_engine('.slim', Slim::Template)
-        end if config.respond_to?(:assets)
+        end
       end
     end
   end
