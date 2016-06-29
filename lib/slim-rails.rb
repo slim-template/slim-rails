@@ -1,6 +1,7 @@
 require 'slim-rails/version'
 require 'rails'
 require 'slim'
+require 'slim-rails/register_engine'
 
 module Slim
   module Rails
@@ -8,11 +9,7 @@ module Slim
       config.app_generators.template_engine :slim
 
       initializer 'slim_rails.configure_template_digestor' do |app|
-        if config.respond_to?(:assets)
-          config.assets.configure do |env|
-            env.assets.register_engine '.slim', Slim::Template
-          end
-        end
+        Slim::Rails::RegisterEngine.register_engine(app, config)
 
         ActiveSupport.on_load(:action_view) do
           ActiveSupport.on_load(:after_initialize) do
