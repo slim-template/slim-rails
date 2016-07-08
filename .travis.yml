@@ -1,19 +1,27 @@
+sudo: false
 language: ruby
 before_install:
   - gem install bundler
 rvm:
-  - ruby-head
-  - 2.2.2
+  - 2.3.1
+  - 2.2.5
   - 2.1
   - 2.0
+  - ruby-head
 gemfile:
-  - gemfiles/rails_3.gemfile
-  - gemfiles/rails_4.gemfile
-  - gemfiles/rails_4.1.gemfile
+  - gemfiles/rails_5.gemfile
   - gemfiles/rails_4.2.gemfile
+  - gemfiles/rails_4.1.gemfile
+  - gemfiles/rails_4.gemfile
+  - gemfiles/rails_3.gemfile
 matrix:
   allow_failures:
     - rvm: ruby-head
+  exclude:
+    - rvm: 2.1
+      gemfile: gemfiles/rails_5.gemfile
+    - rvm: 2.0
+      gemfile: gemfiles/rails_5.gemfile
 addons:
   code_climate:
     repo_token: 294f0ec8183176c0259b75eb21b38414508616985a7b39fc48fec9dfcf40a52e
