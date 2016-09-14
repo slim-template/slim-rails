@@ -30,7 +30,8 @@ module Slim
         config.assets.configure do |env|
           if env.respond_to?(:register_transformer)
             env.register_mime_type 'text/slim', extensions: ['.slim', '.slim.html']#, charset: :html
-            env.register_preprocessor 'text/slim', 'text/html', RegisterEngine::Transformer
+            env.register_preprocessor 'text/slim', RegisterEngine::Transformer
+            env.register_preprocessor 'text/html', RegisterEngine::Transformer
           end
 
           if env.respond_to?(:register_engine)
