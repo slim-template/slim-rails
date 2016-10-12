@@ -11,7 +11,7 @@ class Slim::Rails::AssetsTest < ActiveSupport::TestCase
       require 'slim-rails'
       class DummyApp < ::Rails::Application
         config.root = #{dir.inspect}
-        config.assets.enabled = true
+        config.assets.enabled = true if #{use_sprockets}
       end
       DummyApp.initialize!
       #{code}
