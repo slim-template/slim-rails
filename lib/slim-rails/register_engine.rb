@@ -32,9 +32,7 @@ module Slim
             env.register_mime_type 'text/slim', extensions: ['.slim', '.slim.html']#, charset: :html
             env.register_preprocessor 'text/slim', RegisterEngine::Transformer
             env.register_preprocessor 'text/html', RegisterEngine::Transformer
-          end
-
-          if env.respond_to?(:register_engine)
+          elsif env.respond_to?(:register_engine)
             args = ['.slim', Slim::Template]
             args << { silence_deprecation: true } if Sprockets::VERSION.start_with?("3")
             env.register_engine(*args)
