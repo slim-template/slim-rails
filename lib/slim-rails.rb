@@ -8,6 +8,8 @@ module Slim
     class Railtie < ::Rails::Railtie
       config.app_generators.template_engine :slim
 
+      Slim::Engine.set_options pretty: ::Rails.env.development?, sort_attrs: ::Rails.env.development?
+
       initializer 'slim_rails.configure_template_digestor' do |app|
         Slim::Rails::RegisterEngine.register_engine(app, config)
 
