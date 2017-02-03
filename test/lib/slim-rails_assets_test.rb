@@ -12,6 +12,7 @@ class Slim::Rails::AssetsTest < ActiveSupport::TestCase
       class DummyApp < ::Rails::Application
         config.root = #{dir.inspect}
         config.assets.enabled = true if #{use_sprockets}
+        config.eager_load = false
       end
       DummyApp.initialize!
       #{code}
