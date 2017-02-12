@@ -33,6 +33,9 @@ class Slim::Rails::AssetsTest < ActiveSupport::TestCase
       FileUtils.mkdir_p(File.dirname(asset_path))
       File.write(asset_path, ".test\n  | hi")
 
+      asset_path = File.join(dir, 'app', 'assets', 'html', 'test_helpers.slim')
+      File.write(asset_path, '= logical_path')
+
       `BUNDLE_GEMFILE=#{ENV['BUNDLE_GEMFILE']} bundle exec ruby #{app_path}`
     end
   end
@@ -61,5 +64,9 @@ class Slim::Rails::AssetsTest < ActiveSupport::TestCase
     test "should return Slim version when passing '.slim' extension" do
       assert_equal ".test\n  | hi", with_app(true, 'print DummyApp.assets["test.slim"]')
     end
+  end
+
+  test "should work with asset helpers" do
+    assert_equal 'test_helpers', with_app(true, 'print DummyApp.assets["test_helpers", accept: "text/html"]')
   end
 end
