@@ -3,7 +3,8 @@ module Slim
     module RegisterEngine
       class Transformer
         def self.call(input)
-          Slim::Template.new(input[:name]) { input[:data] }.render(nil)
+          context = input[:environment].context_class.new(input)
+          Slim::Template.new(input[:name]) { input[:data] }.render(context)
         end
       end
 
