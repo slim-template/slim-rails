@@ -29,5 +29,6 @@ class Slim::Rails::AssetsTest < ActiveSupport::TestCase
   test 'compile slim view' do
     assert_equal 'ok', with_app(false, 'print DummyApp.assets || "ok"')
     assert_equal '<div class="test">hi</div>', with_app(true, 'print DummyApp.assets["test.slim"].to_s')
+    assert_equal '<div class="test">hi</div>', with_app(true, 'print DummyApp.assets["test", accept: "text/html"].to_s')
   end
 end
