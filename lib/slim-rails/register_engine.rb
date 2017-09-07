@@ -30,6 +30,7 @@ module Slim
         config.assets.configure do |env|
           if env.respond_to?(:register_transformer) && Sprockets::VERSION.to_i > 3
             env.register_mime_type 'text/slim', extensions: ['.slim', '.slim.html']#, charset: :html
+            env.register_mime_type 'application/javascript', extensions: ['.js.jst.ejs.slim']
             env.register_transformer 'text/slim', 'text/html', RegisterEngine::Transformer
           elsif env.respond_to?(:register_engine)
             args = ['.slim', Slim::Template]
