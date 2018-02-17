@@ -3,7 +3,8 @@ before_install:
   - gem install bundler
 rvm:
   - ruby-head
-  - 2.4.0
+  - 2.5
+  - 2.4
   - 2.3
   - 2.2
   - 2.1
@@ -17,11 +18,17 @@ gemfile:
 matrix:
   allow_failures:
     - rvm: ruby-head
-    - rvm: 2.4.0
+    - rvm: 2.4
       gemfile: gemfiles/rails_4.gemfile
-    - rvm: 2.4.0
+    - rvm: 2.4
       gemfile: gemfiles/rails_4.1.gemfile
-    - rvm: 2.4.0
+    - rvm: 2.4
+      gemfile: gemfiles/rails_4.2.gemfile
+    - rvm: 2.5
+      gemfile: gemfiles/rails_4.gemfile
+    - rvm: 2.5
+      gemfile: gemfiles/rails_4.1.gemfile
+    - rvm: 2.5
       gemfile: gemfiles/rails_4.2.gemfile
   exclude:
     - rvm: 2.1
