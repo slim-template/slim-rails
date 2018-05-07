@@ -1,14 +1,29 @@
-= form_for @<%= singular_table_name %> do |f|
-  - if @<%= singular_table_name %>.errors.any?
+<% if Gem::Requirement.new("< 5.1").satisfied_by? Gem::Version.new(Rails::VERSION::STRING) -%>
+= form_for <%= singular_table_name %> do |form|
+<% else -%>
+= form_with(model: <%= singular_table_name %>, local: true) do |form|
+<% end -%>
+  - if <%= singular_table_name %>.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@<%= singular_table_name %>.errors.count, "error")} prohibited this <%= singular_table_name %> from being saved:"
+      h2 = "#{pluralize(<%= singular_table_name %>.errors.count, "error")} prohibited this <%= singular_table_name.titleize %> from being saved:"
       ul
-        - @<%= singular_table_name %>.errors.full_messages.each do |message|
+        - <%= singular_table_name %>.errors.full_messages.each do |message|
           li = message
 
 <% attributes.each do |attribute| -%>
   .field
-    = f.label :<%= attribute.name %>
-    = f.<%= attribute.field_type %> :<%= attribute.name %>
+<% if attribute.respond_to?(:password_digest?) && attribute.password_digest? -%>
+    = form.label :password
+    = form.password_field :password
+
+  .field
+    = form.label :password_confirmation
+    = form.password_field :password_confirmation
+<% else -%>
+    = form.label :<%= attribute.index_name %>
+    = form.<%= attribute.field_type %> :<%= attribute.index_name %>
 <% end -%>
-  .actions = f.submit
+
+<% end -%>
+  .actions
+    = form.submit
