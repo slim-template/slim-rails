@@ -1,3 +1,8 @@
+## 3.2.0 (October 7, 2018)
+
+* Support for Slim 4
+
+
 ## 3.1.3 (April 3, 2017)
 
 * Improved compatibility with Sprockets 4
