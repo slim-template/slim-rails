@@ -1,4 +1,4 @@
-# slim-rails [![Build Status](https://travis-ci.org/slim-template/slim-rails.svg?branch=master)](https://travis-ci.org/slim-template/slim-rails) [![Code Climate](https://codeclimate.com/github/slim-template/slim-rails/badges/gpa.svg)](https://codeclimate.com/github/slim-template/slim-rails)
+# slim-rails [![Gem Version](https://img.shields.io/gem/v/slim-rails.svg)](http://rubygems.org/gems/slim-rails) [![Build Status](https://travis-ci.org/slim-template/slim-rails.svg?branch=master)](https://travis-ci.org/slim-template/slim-rails) [![Code Climate](https://codeclimate.com/github/slim-template/slim-rails/badges/gpa.svg)](https://codeclimate.com/github/slim-template/slim-rails)
 
 slim-rails provides Slim generators for Rails 3+. It was based on
 [haml-rails](http://github.com/indirect/haml-rails) and it does basically the
