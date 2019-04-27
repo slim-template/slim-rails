@@ -3,6 +3,7 @@ before_install:
   - gem install bundler
 rvm:
   - ruby-head
+  - 2.6
   - 2.5
   - 2.4
   - 2.3
@@ -32,6 +33,12 @@ matrix:
     - rvm: 2.5
       gemfile: gemfiles/rails_4.1.gemfile
     - rvm: 2.5
+      gemfile: gemfiles/rails_4.2.gemfile
+    - rvm: 2.6
+      gemfile: gemfiles/rails_4.gemfile
+    - rvm: 2.6
+      gemfile: gemfiles/rails_4.1.gemfile
+    - rvm: 2.6
       gemfile: gemfiles/rails_4.2.gemfile
   exclude:
     - rvm: 2.4
