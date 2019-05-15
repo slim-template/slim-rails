@@ -2,6 +2,8 @@ require 'test_helper'
 require 'lib/generators/slim/testing_helper'
 
 class Slim::Generators::ScaffoldGeneratorTest < Rails::Generators::TestCase
+  include SlimLintHelpers
+
   destination File.join(Rails.root)
   tests Rails::Generators::ScaffoldGenerator
   arguments %w(product_line title:string price:integer --template-engine slim --orm active-record)
@@ -22,5 +24,11 @@ class Slim::Generators::ScaffoldGeneratorTest < Rails::Generators::TestCase
 
     assert_no_file File.join "app", "views", "product_lines"
     assert_no_file File.join "app", "views", "layouts", "product_lines.html.slim"
+  end
+
+  test "should generate SlimLint valid templates" do
+    run_generator
+    templates = Dir[File.join(Rails.root, 'app', 'views', '**', '*.slim')]
+    assert_empty lint(templates)
   end
 end
