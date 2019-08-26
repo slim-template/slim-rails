@@ -18,6 +18,8 @@ gem "slim-rails"
 
 And that's it.
 
+If you have existing `.erb` templates, check out [our guide](https://github.com/slim-template/slim/wiki/Template-Converters-ERB-to-SLIM) on how to achieve this.
+
 From the version 0.2.0, there is no need to include gem "slim" in your Gemfile.
 
 Every time you generate a controller or scaffold, you'll get Slim templates.
