@@ -1,4 +1,4 @@
-# slim-rails [![Build Status](https://travis-ci.org/slim-template/slim-rails.png?branch=master)](https://travis-ci.org/slim-template/slim-rails) [![Code Climate](https://codeclimate.com/github/slim-template/slim-rails/badges/gpa.svg)](https://codeclimate.com/github/slim-template/slim-rails)
+# slim-rails [![Gem Version](https://img.shields.io/gem/v/slim-rails.svg)](http://rubygems.org/gems/slim-rails) [![Build Status](https://travis-ci.org/slim-template/slim-rails.svg?branch=master)](https://travis-ci.org/slim-template/slim-rails) [![Code Climate](https://codeclimate.com/github/slim-template/slim-rails/badges/gpa.svg)](https://codeclimate.com/github/slim-template/slim-rails)
 
 slim-rails provides Slim generators for Rails 3+. It was based on
 [haml-rails](http://github.com/indirect/haml-rails) and it does basically the
@@ -17,6 +17,8 @@ gem "slim-rails"
 ```
 
 And that's it.
+
+If you have existing `.erb` templates, check out [our guide](https://github.com/slim-template/slim/wiki/Template-Converters-ERB-to-SLIM) on how to achieve this.
 
 From the version 0.2.0, there is no need to include gem "slim" in your Gemfile.
 

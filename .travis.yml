@@ -1,33 +1,25 @@
 language: ruby
 before_install:
-  - gem install bundler
+  - gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
+  - gem install bundler -v '< 2'
 rvm:
   - ruby-head
-  - 2.4.0
-  - 2.3
-  - 2.2
-  - 2.1
-  - 2.0
+  - 3.0
+  - 2.7
+  - 2.6
 gemfile:
-  - gemfiles/rails_3.gemfile
-  - gemfiles/rails_4.gemfile
-  - gemfiles/rails_4.1.gemfile
-  - gemfiles/rails_4.2.gemfile
   - gemfiles/rails_5.gemfile
+  - gemfiles/rails_5.1.gemfile
+  - gemfiles/rails_5.2.gemfile
+  - gemfiles/rails_6.0.gemfile
+  - gemfiles/rails_6.1.gemfile
 matrix:
   allow_failures:
     - rvm: ruby-head
-    - rvm: 2.4.0
-      gemfile: gemfiles/rails_4.gemfile
-    - rvm: 2.4.0
-      gemfile: gemfiles/rails_4.1.gemfile
-    - rvm: 2.4.0
-      gemfile: gemfiles/rails_4.2.gemfile
-  exclude:
-    - rvm: 2.1
-      gemfile: gemfiles/rails_5.gemfile
-    - rvm: 2.0
-      gemfile: gemfiles/rails_5.gemfile
+    - rvm: 3.0
+      gemfile: gemfiles/rails_5.1.gemfile
+    - rvm: 3.0
+      gemfile: gemfiles/rails_5.2.gemfile
 addons:
   code_climate:
     repo_token: 294f0ec8183176c0259b75eb21b38414508616985a7b39fc48fec9dfcf40a52e
