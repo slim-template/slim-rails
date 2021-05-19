@@ -5,6 +5,10 @@ require 'tmpdir'
 class Slim::Rails::AssetsTest < ActiveSupport::TestCase
   def with_app(use_sprockets, code)
     Dir.mktmpdir do |dir|
+      manifest_path = File.join(dir, 'app', 'assets', 'config', 'manifest.js')
+      FileUtils.mkdir_p(File.dirname(manifest_path))
+      File.write(manifest_path, '//= link_tree ../html .slim')
+
       app_path = File.join(dir, 'app.rb')
       File.write(app_path, <<-APP)
       require 'rails'
