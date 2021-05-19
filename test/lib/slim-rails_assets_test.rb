@@ -1,3 +1,4 @@
+require 'sprockets'
 require 'test_helper'
 require 'tmpdir'
 
@@ -18,6 +19,12 @@ class Slim::Rails::AssetsTest < ActiveSupport::TestCase
       #{code}
       APP
 
+      if use_sprockets && Sprockets::VERSION.to_i >= 4
+        manifest_path = File.join(dir, 'app', 'assets', 'config', 'manifest.js')
+        FileUtils.mkdir_p(File.dirname(manifest_path))
+        File.write(manifest_path, '')
+      end
+
       asset_path = File.join(dir, 'app', 'assets', 'html', 'test.slim')
       FileUtils.mkdir_p(File.dirname(asset_path))
       File.write(asset_path, ".test\n  | hi")
@@ -26,9 +33,29 @@ class Slim::Rails::AssetsTest < ActiveSupport::TestCase
     end
   end
 
-  test 'compile slim view' do
-    assert_equal 'ok', with_app(false, 'print DummyApp.assets || "ok"')
-    assert_equal '<div class="test">hi</div>', with_app(true, 'print DummyApp.assets["test.slim"].to_s')
-    assert_equal '<div class="test">hi</div>', with_app(true, 'print DummyApp.assets["test", accept: "text/html"].to_s')
+  test "should work without Sprockets" do
+    assert_equal '', with_app(false, 'DummyApp.assets')
+  end
+
+  test "should return HTML version when passing 'text/html' content type" do
+    assert_equal '<div class="test">hi</div>', with_app(true, 'print DummyApp.assets["test", accept: "text/html"]')
+  end
+
+  if Sprockets::VERSION.to_i < 4
+    test "should return HTML version when passing '.slim' extension" do
+      assert_equal '<div class="test">hi</div>', with_app(true, 'print DummyApp.assets["test.slim"]')
+    end
+  end
+
+  if Sprockets::VERSION.to_i >= 3
+    test "should return HTML version when passing '.html' extension" do
+      assert_equal '<div class="test">hi</div>', with_app(true, 'print DummyApp.assets["test.html"]')
+    end
+  end
+
+  if Sprockets::VERSION.to_i >= 4
+    test "should return Slim version when passing '.slim' extension" do
+      assert_equal ".test\n  | hi", with_app(true, 'print DummyApp.assets["test.slim"]')
+    end
   end
 end
