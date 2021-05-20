@@ -31,7 +31,20 @@ class Slim::Rails::AssetsTest < ActiveSupport::TestCase
 
       asset_path = File.join(dir, 'app', 'assets', 'html', 'test.slim')
       FileUtils.mkdir_p(File.dirname(asset_path))
-      File.write(asset_path, ".test\n  | hi")
+      File.write(asset_path, ".test\n | hi")
+
+      asset_path = File.join(dir, 'app', 'assets', 'html', 'test.js.slim')
+      FileUtils.mkdir_p(File.dirname(asset_path))
+      content = <<-EOH
+        ruby:
+          isTrue = true
+
+        .test
+          - if true
+            javascript:
+              var x = 42;
+      EOH
+      File.write(asset_path, content)
 
       `BUNDLE_GEMFILE=#{ENV['BUNDLE_GEMFILE']} bundle exec ruby #{app_path}`
     end
@@ -61,5 +74,11 @@ class Slim::Rails::AssetsTest < ActiveSupport::TestCase
     test "should return Slim version when passing '.slim' extension" do
       assert_equal ".test\n  | hi", with_app(true, 'print DummyApp.assets["test.slim"]')
     end
+  end
+
+  test 'compile javascript slim view' do
+    assert_equal 'ok', with_app(false, 'print DummyApp.assets || "ok"')
+    assert_equal '<div class="test"><script>var x = 42;</script></div>', with_app(true, 'print DummyApp.assets["test.js.slim"].to_s.strip')
+    assert_equal '<div class="test"><script>var x = 42;</script></div>', with_app(true, 'print DummyApp.assets["test.js.slim", accept: "text/html"].to_s')
   end
 end
