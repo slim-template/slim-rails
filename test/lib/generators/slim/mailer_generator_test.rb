@@ -2,6 +2,8 @@ require 'test_helper'
 require 'lib/generators/slim/testing_helper'
 
 class Slim::Generators::MailerGeneratorTest < Rails::Generators::TestCase
+  include SlimLintHelpers
+
   destination File.join(Rails.root)
   tests Rails::Generators::MailerGenerator
   arguments %w(notifier foo bar --template-engine slim)
@@ -17,12 +19,12 @@ class Slim::Generators::MailerGeneratorTest < Rails::Generators::TestCase
     if rails_version >= '5.0'
       assert_file "app/views/notifier_mailer/foo.html.slim" do |view|
         assert_match %r(app/views/notifier_mailer/foo\.html\.slim), view
-        assert_match(/\= @greeting/, view)
+        assert_match(/\#\{@greeting/, view)
       end
 
       assert_file "app/views/notifier_mailer/bar.html.slim" do |view|
         assert_match %r(app/views/notifier_mailer/bar\.html\.slim), view
-        assert_match(/\= @greeting/, view)
+        assert_match(/\#\{@greeting/, view)
       end
 
       assert_file "app/views/notifier_mailer/foo.text.slim" do |view|
@@ -46,12 +48,12 @@ class Slim::Generators::MailerGeneratorTest < Rails::Generators::TestCase
 
         assert_file "app/views/notifier/foo.html.slim" do |view|
           assert_match %r(app/views/notifier/foo\.html\.slim), view
-          assert_match(/\= @greeting/, view)
+          assert_match(/\#\{@greeting/, view)
         end
 
         assert_file "app/views/notifier/bar.html.slim" do |view|
           assert_match %r(app/views/notifier/bar\.html\.slim), view
-          assert_match(/\= @greeting/, view)
+          assert_match(/\#\{@greeting/, view)
         end
 
       end
@@ -66,5 +68,11 @@ class Slim::Generators::MailerGeneratorTest < Rails::Generators::TestCase
         assert_match(/@greeting/, view)
       end
     end
+  end
+
+  test "should generate SlimLint valid templates" do
+    run_generator
+    templates = Dir[File.join(Rails.root, 'app', 'views', '**', '*.slim')]
+    assert_empty lint(templates)
   end
 end

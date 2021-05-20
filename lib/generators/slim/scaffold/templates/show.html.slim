@@ -1,6 +1,6 @@
 p#notice = notice
-
 <% attributes.each do |attribute| -%>
+
 p
   strong <%= attribute.human_name %>:
   = @<%= singular_table_name %>.<%= attribute.name %>
