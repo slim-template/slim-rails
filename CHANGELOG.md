@@ -1,3 +1,10 @@
+## 3.3.0 (July 19, 2021)
+
+* Enabled asset helpers in precompiled templates  (#135)
+* Tested with Rails 6.0, 6.1 and Ruby 3.0
+* Improved CI and tests with Sprockets 4
+
+
 ## 3.2.0 (October 7, 2018)
 
 * Support for Slim 4
