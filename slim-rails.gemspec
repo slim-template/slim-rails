@@ -14,9 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/slim-template/slim-rails'
   spec.license       = 'MIT'
 
-  spec.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  spec.files         = `git ls-files`.split("\n")
-  spec.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  spec.files         = Dir["{lib}/**/*", "README.md", "CHANGELOG.md", "LICENSE"]
   spec.require_paths = ['lib']
 
   spec.required_ruby_version = '>= 2.0.0'
