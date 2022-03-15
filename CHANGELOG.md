@@ -1,3 +1,8 @@
+## 3.4.0 (March 2022)
+
+* Updated templates to Rails 7 style (thanks github.com/viktorianer) (#178)
+
+
 ## 3.3.0 (July 19, 2021)
 
 * Enabled asset helpers in precompiled templates  (#135)
