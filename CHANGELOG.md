@@ -1,3 +1,9 @@
+## Unreleased
+
+- Restored legacy templates for Rails < 7
+- Updated Appraisals to supported Rails versions
+- Replace Travis CI with Github Actions.
+
 ## 3.4.0 (March 2022)
 
 * Updated templates to Rails 7 style (thanks github.com/viktorianer) (#178)
