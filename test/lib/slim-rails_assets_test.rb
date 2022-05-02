@@ -1,15 +1,15 @@
-require 'sprockets'
-require 'test_helper'
-require 'tmpdir'
+require "sprockets"
+require "test_helper"
+require "tmpdir"
 
 class Slim::Rails::AssetsTest < ActiveSupport::TestCase
   def with_app(use_sprockets, code)
     Dir.mktmpdir do |dir|
-      manifest_path = File.join(dir, 'app', 'assets', 'config', 'manifest.js')
+      manifest_path = File.join(dir, "app", "assets", "config", "manifest.js")
       FileUtils.mkdir_p(File.dirname(manifest_path))
-      File.write(manifest_path, '//= link_tree ../html .slim')
+      File.write(manifest_path, "//= link_tree ../html .slim")
 
-      app_path = File.join(dir, 'app.rb')
+      app_path = File.join(dir, "app.rb")
       File.write(app_path, <<-APP)
       require 'rails'
       require 'sprockets/railtie' if #{use_sprockets}
@@ -24,24 +24,24 @@ class Slim::Rails::AssetsTest < ActiveSupport::TestCase
       APP
 
       if use_sprockets && Sprockets::VERSION.to_i >= 4
-        manifest_path = File.join(dir, 'app', 'assets', 'config', 'manifest.js')
+        manifest_path = File.join(dir, "app", "assets", "config", "manifest.js")
         FileUtils.mkdir_p(File.dirname(manifest_path))
-        File.write(manifest_path, '')
+        File.write(manifest_path, "")
       end
 
-      asset_path = File.join(dir, 'app', 'assets', 'html', 'test.slim')
+      asset_path = File.join(dir, "app", "assets", "html", "test.slim")
       FileUtils.mkdir_p(File.dirname(asset_path))
       File.write(asset_path, ".test\n  | hi")
 
-      asset_path = File.join(dir, 'app', 'assets', 'html', 'test_helpers.slim')
-      File.write(asset_path, '= logical_path')
+      asset_path = File.join(dir, "app", "assets", "html", "test_helpers.slim")
+      File.write(asset_path, "= logical_path")
 
-      `BUNDLE_GEMFILE=#{ENV['BUNDLE_GEMFILE']} bundle exec ruby #{app_path}`
+      `BUNDLE_GEMFILE=#{ENV["BUNDLE_GEMFILE"]} bundle exec ruby #{app_path}`
     end
   end
 
   test "should work without Sprockets" do
-    assert_equal '', with_app(false, 'DummyApp.assets')
+    assert_equal "", with_app(false, "DummyApp.assets")
   end
 
   test "should return HTML version when passing 'text/html' content type" do
@@ -67,6 +67,6 @@ class Slim::Rails::AssetsTest < ActiveSupport::TestCase
   end
 
   test "should work with asset helpers" do
-    assert_equal 'test_helpers', with_app(true, 'print DummyApp.assets["test_helpers", accept: "text/html"]')
+    assert_equal "test_helpers", with_app(true, 'print DummyApp.assets["test_helpers", accept: "text/html"]')
   end
 end

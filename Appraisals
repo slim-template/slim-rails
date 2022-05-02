@@ -21,5 +21,5 @@ appraise "rails-6.1" do
 end
 
 appraise "rails-edge" do
-  gem "rails", github: 'rails/rails'
+  gem "rails", github: "rails/rails"
 end

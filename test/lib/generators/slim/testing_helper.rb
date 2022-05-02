@@ -1,4 +1,4 @@
-require 'slim_lint'
+require "slim_lint"
 
 module SlimLintHelpers
   EXCLUDED_LINTERS = %w[LineLength]
@@ -8,4 +8,4 @@ module SlimLintHelpers
   end
 end
 
-require_generators slim: ['scaffold', 'controller', 'mailer']
+require_generators slim: ["scaffold", "controller", "mailer"]
