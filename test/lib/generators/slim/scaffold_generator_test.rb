@@ -1,12 +1,12 @@
-require 'test_helper'
-require 'lib/generators/slim/testing_helper'
+require "test_helper"
+require "lib/generators/slim/testing_helper"
 
 class Slim::Generators::ScaffoldGeneratorTest < Rails::Generators::TestCase
   include SlimLintHelpers
 
   destination File.join(Rails.root)
   tests Rails::Generators::ScaffoldGenerator
-  arguments %w(product_line title:string price:integer --template-engine slim --orm active-record)
+  arguments %w[product_line title:string price:integer --template-engine slim --orm active-record]
 
   setup :prepare_destination
   setup :copy_routes
@@ -14,7 +14,7 @@ class Slim::Generators::ScaffoldGeneratorTest < Rails::Generators::TestCase
   test "should invoke template engine" do
     run_generator
 
-    %w(index edit new show _form).each { |view| assert_file File.join "app", "views", "product_lines", "#{view}.html.slim" }
+    %w[index edit new show _form].each { |view| assert_file File.join "app", "views", "product_lines", "#{view}.html.slim" }
     assert_no_file File.join "app", "views", "layouts", "product_lines.html.slim"
   end
 
@@ -28,7 +28,7 @@ class Slim::Generators::ScaffoldGeneratorTest < Rails::Generators::TestCase
 
   test "should generate SlimLint valid templates" do
     run_generator
-    templates = Dir[File.join(Rails.root, 'app', 'views', '**', '*.slim')]
+    templates = Dir[File.join(Rails.root, "app", "views", "**", "*.slim")]
     assert_empty lint(templates)
   end
 end

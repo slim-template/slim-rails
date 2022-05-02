@@ -23,7 +23,7 @@ module Slim
           return unless app.assets
           return unless app.assets.respond_to?(:register_engine)
 
-          app.assets.register_engine('.slim', Slim::Template)
+          app.assets.register_engine(".slim", Slim::Template)
         end
 
         def _register_engine(config)
@@ -31,11 +31,11 @@ module Slim
 
           config.assets.configure do |env|
             if env.respond_to?(:register_transformer) && Sprockets::VERSION.to_i > 3
-              env.register_mime_type 'text/slim', extensions: ['.slim', '.slim.html']#, charset: :html
-              env.register_transformer 'text/slim', 'text/html', RegisterEngine::Transformer
+              env.register_mime_type "text/slim", extensions: [".slim", ".slim.html"] # , charset: :html
+              env.register_transformer "text/slim", "text/html", RegisterEngine::Transformer
             elsif env.respond_to?(:register_engine)
-              args = ['.slim', Slim::Template]
-              args << { silence_deprecation: true } if Sprockets::VERSION.start_with?('3')
+              args = [".slim", Slim::Template]
+              args << {silence_deprecation: true} if Sprockets::VERSION.start_with?("3")
               env.register_engine(*args)
             end
           end
