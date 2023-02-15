@@ -20,7 +20,7 @@ Every time you generate a controller or scaffold, you'll get Slim templates.
 
 If you have existing `.erb` templates, check out our guide [How to convert your `.erb` templates to `.slim`](https://github.com/slim-template/slim/wiki/Template-Converters-ERB-to-SLIM) on how to achieve this.
 
-This gem is tested with Ruby on Rails 5.2+.
+This gem is [tested with Ruby on Rails 5.2+](/.github/workflows/main.yml).
 
 ## History
 
