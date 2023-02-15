@@ -1,3 +1,17 @@
+## 3.6.1 (February 14, 2023)
+
+- Fix to avoid depending on the failed Slim 5.0.0 release ([#188])
+
+[#188]: https://github.com/slim-template/slim-rails/pull/188
+
+## 3.6.0 (February 14, 2023)
+
+- Add support for Slim 5 ([#185])
+
+Thanks https://github.com/michaelbaudino ([#185])
+
+[#185]: https://github.com/slim-template/slim-rails/pull/185
+
 ## 3.5.0 (May 2022)
 
 * Restored legacy templates for Rails < 7
