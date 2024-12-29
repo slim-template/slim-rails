@@ -8,4 +8,8 @@ module SlimLintHelpers
   end
 end
 
-require_generators slim: ["scaffold", "controller", "mailer"]
+if ::Rails::VERSION::MAJOR >= 8
+  require_generators slim: ["scaffold", "controller", "mailer", "authentication"]
+else
+  require_generators slim: ["scaffold", "controller", "mailer"]
+end

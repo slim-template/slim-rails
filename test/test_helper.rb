@@ -29,16 +29,30 @@ def copy_routes
   FileUtils.cp File.expand_path(routes), destination
 end
 
+def copy_application_controller
+  app_controller = File.expand_path(File.join(File.dirname(__FILE__), "fixtures", "application_controller.rb"))
+  destination = File.join(Rails.root, "app", "controllers")
+  FileUtils.mkdir_p(destination)
+  FileUtils.cp File.expand_path(app_controller), destination
+end
+
 def assert_class(klass, content)
   assert content =~ /class #{klass}(\(.+\))?(.*?)\nend/m, "Expected to have class #{klass}"
   yield $2.strip if block_given?
 end
 
 def generator_list
-  {
-    rails: ["scaffold", "controller", "mailer"],
-    slim: ["scaffold", "controller", "mailer"]
-  }
+  if ::Rails::VERSION::MAJOR >= 8
+    {
+      rails: ["scaffold", "controller", "mailer", "authentication"],
+      slim: ["scaffold", "controller", "mailer", "authentication"]
+    }
+  else
+    {
+      rails: ["scaffold", "controller", "mailer"],
+      slim: ["scaffold", "controller", "mailer"]
+    }
+  end
 end
 
 def path_prefix(name)
