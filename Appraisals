@@ -10,6 +10,9 @@ appraise "rails-6.0" do
   gem "bigdecimal"
   gem "mutex_m"
   gem "drb"
+
+  # Fix https://github.com/rails/rails/issues/54260
+  gem "concurrent-ruby", "1.3.4"
 end
 
 appraise "rails-6.1" do
@@ -20,6 +23,9 @@ appraise "rails-6.1" do
   gem "bigdecimal"
   gem "mutex_m"
   gem "drb"
+
+  # Fix https://github.com/rails/rails/issues/54260
+  gem "concurrent-ruby", "1.3.4"
 end
 
 appraise "rails-7.0" do
@@ -30,6 +36,9 @@ appraise "rails-7.0" do
   gem "bigdecimal"
   gem "mutex_m"
   gem "drb"
+
+  # Fix https://github.com/rails/rails/issues/54260
+  gem "concurrent-ruby", "1.3.4"
 end
 
 appraise "rails-7.1" do
