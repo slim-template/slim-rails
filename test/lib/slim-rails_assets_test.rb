@@ -1,4 +1,9 @@
-require "sprockets"
+begin
+  require "sprockets"
+  SPROCKETS_VERSION = Sprockets::VERSION
+rescue LoadError
+  SPROCKETS_VERSION = nil
+end
 require "test_helper"
 require "tmpdir"
 
@@ -23,7 +28,7 @@ class Slim::Rails::AssetsTest < ActiveSupport::TestCase
       #{code}
       APP
 
-      if use_sprockets && Sprockets::VERSION.to_i >= 4
+      if use_sprockets && SPROCKETS_VERSION.to_i >= 4
         manifest_path = File.join(dir, "app", "assets", "config", "manifest.js")
         FileUtils.mkdir_p(File.dirname(manifest_path))
         File.write(manifest_path, "")
@@ -44,29 +49,31 @@ class Slim::Rails::AssetsTest < ActiveSupport::TestCase
     assert_equal "", with_app(false, "DummyApp.assets")
   end
 
-  test "should return HTML version when passing 'text/html' content type" do
-    assert_equal '<div class="test">hi</div>', with_app(true, 'print DummyApp.assets["test", accept: "text/html"]')
-  end
-
-  if Sprockets::VERSION.to_i < 4
-    test "should return HTML version when passing '.slim' extension" do
-      assert_equal '<div class="test">hi</div>', with_app(true, 'print DummyApp.assets["test.slim"]')
+  unless SPROCKETS_VERSION.nil?
+    test "should return HTML version when passing 'text/html' content type" do
+      assert_equal '<div class="test">hi</div>', with_app(true, 'print DummyApp.assets["test", accept: "text/html"]')
     end
-  end
 
-  if Sprockets::VERSION.to_i >= 3
-    test "should return HTML version when passing '.html' extension" do
-      assert_equal '<div class="test">hi</div>', with_app(true, 'print DummyApp.assets["test.html"]')
+    if SPROCKETS_VERSION.to_i < 4
+      test "should return HTML version when passing '.slim' extension" do
+        assert_equal '<div class="test">hi</div>', with_app(true, 'print DummyApp.assets["test.slim"]')
+      end
     end
-  end
 
-  if Sprockets::VERSION.to_i >= 4
-    test "should return Slim version when passing '.slim' extension" do
-      assert_equal ".test\n  | hi", with_app(true, 'print DummyApp.assets["test.slim"]')
+    if Sprockets::VERSION.to_i >= 3
+      test "should return HTML version when passing '.html' extension" do
+        assert_equal '<div class="test">hi</div>', with_app(true, 'print DummyApp.assets["test.html"]')
+      end
     end
-  end
 
-  test "should work with asset helpers" do
-    assert_equal "test_helpers", with_app(true, 'print DummyApp.assets["test_helpers", accept: "text/html"]')
+    if Sprockets::VERSION.to_i >= 4
+      test "should return Slim version when passing '.slim' extension" do
+        assert_equal ".test\n  | hi", with_app(true, 'print DummyApp.assets["test.slim"]')
+      end
+    end
+
+    test "should work with asset helpers" do
+      assert_equal "test_helpers", with_app(true, 'print DummyApp.assets["test_helpers", accept: "text/html"]')
+    end
   end
 end

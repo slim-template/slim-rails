@@ -17,6 +17,13 @@ jobs:
         include:
           - ruby: 2.6
             rails: '5.2'
+          # rails 8.0 + sprockets-rails
+          - ruby: 3.2
+            rails: '8.0_sprockets'
+          - ruby: 3.3
+            rails: '8.0_sprockets'
+          - ruby: 3.4
+            rails: '8.0_sprockets'
         exclude:
           # rails 8.0: support ruby 3.2+
           - ruby: 2.7

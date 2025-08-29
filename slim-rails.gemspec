@@ -22,7 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "railties", [">= 3.1"]
   spec.add_runtime_dependency "slim", [">= 3.0", "!= 5.0.0", "< 6.0"]
 
-  spec.add_development_dependency "sprockets-rails"
   spec.add_development_dependency "slim_lint", ">= 0.24.0"
   spec.add_development_dependency "rocco"
   spec.add_development_dependency "redcarpet"
