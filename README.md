@@ -1,4 +1,4 @@
-# slim-rails [![Gem Version](https://img.shields.io/gem/v/slim-rails.svg)](http://rubygems.org/gems/slim-rails) [![Build Status](https://github.com/slim-template/slim-rails/actions/workflows/main.yml/badge.svg)](https://github.com/slim-template/slim-rails/actions/workflows/main.yml) [![Code Climate](https://codeclimate.com/github/slim-template/slim-rails/badges/gpa.svg)](https://codeclimate.com/github/slim-template/slim-rails)
+# slim-rails [![Gem Version](https://img.shields.io/gem/v/slim-rails.svg)](http://rubygems.org/gems/slim-rails) [![Build Status](https://github.com/slim-template/slim-rails/actions/workflows/main.yml/badge.svg)](https://github.com/slim-template/slim-rails/actions/workflows/main.yml)
 
 slim-rails provides Slim generators for Rails:
 
