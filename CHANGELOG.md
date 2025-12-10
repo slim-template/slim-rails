@@ -1,3 +1,18 @@
+## 3.7.0 (December 29, 2024)
+
+- Support Rails 8.0 authentication generator ([#201])
+- Update CI matrix for Rails 7.2 / 8.0 and Ruby 3.3 / 3.4 ([#197], [#200])
+
+## 3.6.3 (October 24, 2023)
+
+- Fix ActionView::SyntaxErrorInTemplate when scaffolding with namespace ([#193])
+- Update CI matrix for Rails 7.1 ([#194])
+
+## 3.6.2 (March 9, 2023)
+
+- Update gemspec to be compatible with slim 5.1 ([#191])
+- README: Separate out details from main things ([#190])
+
 ## 3.6.1 (February 14, 2023)
 
 - Fix to avoid depending on the failed Slim 5.0.0 release ([#188])
