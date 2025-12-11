@@ -1,3 +1,9 @@
+## 4.0.0 (December 11, 2025)
+
+- Add support for Rails Annotations and CodeStatistics ([#206])
+- Drop support for Ruby 2.7 and Rails older than 7 ([205])
+- Add Rails 8.1 to CI Matrix ([#204])
+
 ## 3.7.0 (December 29, 2024)
 
 - Support Rails 8.0 authentication generator ([#201])
