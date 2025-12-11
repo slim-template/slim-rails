@@ -22,6 +22,12 @@ Rails::Generators.configure! Rails.application.config.generators
 
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].sort.each { |f| require f }
 
+def copy_gemfile
+  gemfile = File.expand_path(File.join(File.dirname(__FILE__), "fixtures", "Gemfile"))
+  destination = File.join(Rails.root, "Gemfile")
+  FileUtils.cp File.expand_path(gemfile), destination
+end
+
 def copy_routes
   routes = File.expand_path(File.join(File.dirname(__FILE__), "fixtures", "routes.rb"))
   destination = File.join(Rails.root, "config")

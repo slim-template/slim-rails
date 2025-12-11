@@ -12,6 +12,7 @@ if ::Rails::VERSION::MAJOR >= 8
     setup :prepare_destination
     setup :copy_routes
     setup :copy_application_controller
+    setup :copy_gemfile
 
     test "should invoke template engine" do
       run_generator_instance
