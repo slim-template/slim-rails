@@ -33,6 +33,27 @@ module Slim
           end
         end
       end
+
+      if ::Rails::VERSION::MAJOR >= 8 && ::Rails::VERSION::MINOR >= 2
+        initializer "slim_rails.configure_code_statistics" do
+          require "rails/code_statistics"
+
+          ::Rails::CodeStatistics.register_extension("slim")
+        end
+      end
+
+      initializer "slim_rails.configure_source_annotation" do
+        annotation_class = if ::Rails::VERSION::MAJOR >= 6
+          require "rails/source_annotation_extractor"
+          ::Rails::SourceAnnotationExtractor::Annotation
+        else
+          ::SourceAnnotationExtractor::Annotation
+        end
+
+        annotation_class.register_extensions("slim") do |tag|
+          /\s*\/\s*(#{tag}):?\s*(.*)$/
+        end
+      end
     end
   end
 end
