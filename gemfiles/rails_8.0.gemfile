@@ -2,6 +2,7 @@
 
 source "https://rubygems.org"
 
+gem "minitest-mock"
 gem "rails", "~> 8.0.0"
 gem "bcrypt"
 gem "propshaft"
