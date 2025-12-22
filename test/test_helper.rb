@@ -1,5 +1,9 @@
 require "rubygems"
 require "minitest/autorun"
+begin
+  require "minitest/mock"
+rescue LoadError
+end
 require "rails"
 require "rails/test_help"
 require "rails/generators"
