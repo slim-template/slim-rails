@@ -2,3 +2,10 @@ require: standard
 
 inherit_gem:
   standard: config/base.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - '.git/**/*'
+    - 'tmp/**/*'
+    - 'gemfiles/tmp/**/*'
