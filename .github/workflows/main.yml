@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: ['3.0', 3.1, 3.2, 3.3, 3.4]
+        ruby: ['3.0', 3.1, 3.2, 3.3, 3.4, '4.0']
         rails: ['7.0', '7.1', '7.2', '8.0', '8.0_sprockets', '8.1', '8.1_sprockets']
         exclude:
           # rails 8.1: support ruby 3.2+
