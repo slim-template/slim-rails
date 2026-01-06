@@ -1,6 +1,6 @@
-lib = File.expand_path("../lib", __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "slim-rails/version"
+# frozen_string_literal: true
+
+require_relative "lib/slim-rails/version"
 
 Gem::Specification.new do |spec|
   spec.name = "slim-rails"
@@ -12,11 +12,14 @@ Gem::Specification.new do |spec|
   spec.description = "Provides the generator settings required for Rails to use Slim"
   spec.homepage = "https://github.com/slim-template/slim-rails"
   spec.license = "MIT"
+  spec.required_ruby_version = ">= 3.0.0"
+
+  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["source_code_uri"] = spec.homepage
+  spec.metadata["changelog_uri"] = "https://github.com/slim-template/slim-rails/releases"
 
   spec.files = Dir["{lib}/**/*", "README.md", "CHANGELOG.md", "LICENSE"]
   spec.require_paths = ["lib"]
-
-  spec.required_ruby_version = ">= 3.0.0"
 
   spec.add_runtime_dependency "actionpack", [">= 3.1"]
   spec.add_runtime_dependency "railties", [">= 3.1"]
