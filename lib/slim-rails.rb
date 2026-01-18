@@ -51,7 +51,24 @@ module Slim
         end
 
         annotation_class.register_extensions("slim") do |tag|
-          /\s*\/\s*(#{tag}):?\s*(.*)$/
+          Slim::Rails::AnnotationExtractor.new(/\s*\/\s*(#{tag}):?\s*(.*)$/)
+        end
+      end
+    end
+
+    class AnnotationExtractor
+      def initialize(pattern)
+        @pattern = pattern
+      end
+
+      def annotations(file)
+        lineno = 0
+        # Use UTF-8 encoding with fallback for invalid/undefined bytes
+        File.readlines(file, encoding: Encoding::UTF_8, invalid: :replace, undef: :replace).filter_map do |line|
+          lineno += 1
+          if line =~ @pattern
+            ::Rails::SourceAnnotationExtractor::Annotation.new(lineno, $1, $2)
+          end
         end
       end
     end
