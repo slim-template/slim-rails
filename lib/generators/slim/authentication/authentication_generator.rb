@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rails/generators/erb/authentication/authentication_generator"
 
 module Slim

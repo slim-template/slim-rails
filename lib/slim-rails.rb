@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "slim-rails/version"
 require "rails"
 require "slim"

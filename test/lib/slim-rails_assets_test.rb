@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 begin
   require "sprockets"
   SPROCKETS_VERSION = Sprockets::VERSION
