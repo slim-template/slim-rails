@@ -6,7 +6,8 @@ module Slim
       class Transformer
         def self.call(input)
           context = input[:environment].context_class.new(input)
-          Slim::Template.new(input[:name]) { input[:data] }.render(context)
+          data = Slim::Template.new(input[:name]) { input[:data] }.render(context)
+          context.metadata.merge(data: data)
         end
       end
 
