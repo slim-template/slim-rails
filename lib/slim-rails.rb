@@ -27,7 +27,12 @@ module Slim
               elsif ::Rails.version.to_s >= "4.0"
                 # will only apply if Rails 4, which includes 'action_view/dependency_tracker'
                 require "action_view/dependency_tracker"
-                ActionView::DependencyTracker.register_tracker :slim, ActionView::DependencyTracker::ERBTracker
+                tracker = if defined?(ActionView::DependencyTracker::RubyTracker)
+                  ActionView::DependencyTracker::RubyTracker
+                else
+                  ActionView::DependencyTracker::ERBTracker
+                end
+                ActionView::DependencyTracker.register_tracker :slim, tracker
               end
             rescue
               # likely this version of Rails doesn't support dependency tracking
