@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "railties", [">= 7.0"]
   spec.add_runtime_dependency "slim", [">= 3.0", "!= 5.0.0", "< 6.0"]
 
-  spec.add_development_dependency "actionmailer", [">= 3.1"]
+  spec.add_development_dependency "actionmailer", [">= 7.0"]
   spec.add_development_dependency "appraisal"
   spec.add_development_dependency "standardrb"
   spec.add_development_dependency "slim_lint", ">= 0.24.0"
