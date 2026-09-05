@@ -12,21 +12,10 @@ module Slim
 
       class << self
         def register_engine(app, config)
-          if ::Rails::VERSION::MAJOR == 3
-            _register_engine3(app)
-          else
-            _register_engine(config)
-          end
+          _register_engine(config)
         end
 
         private
-
-        def _register_engine3(app)
-          return unless app.assets
-          return unless app.assets.respond_to?(:register_engine)
-
-          app.assets.register_engine(".slim", Slim::Template)
-        end
 
         def _register_engine(config)
           return unless config.respond_to?(:assets)
