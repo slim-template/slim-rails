@@ -21,9 +21,9 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{lib}/**/*", "README.md", "CHANGELOG.md", "LICENSE"]
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "actionpack", [">= 7.0"]
-  spec.add_runtime_dependency "railties", [">= 7.0"]
-  spec.add_runtime_dependency "slim", [">= 3.0", "!= 5.0.0", "< 6.0"]
+  spec.add_dependency "actionpack", [">= 7.0"]
+  spec.add_dependency "railties", [">= 7.0"]
+  spec.add_dependency "slim", [">= 3.0", "!= 5.0.0", "< 6.0"]
 
   spec.add_development_dependency "actionmailer", [">= 7.0"]
   spec.add_development_dependency "appraisal"

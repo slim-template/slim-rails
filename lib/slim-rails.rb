@@ -18,10 +18,10 @@ module Slim
             begin # rubocop:disable Style/RedundantBegin
               require "action_view/dependency_tracker"
               tracker = if defined?(ActionView::DependencyTracker::RubyTracker)
-                          ActionView::DependencyTracker::RubyTracker
-                        else
-                          ActionView::DependencyTracker::ERBTracker
-                        end
+                ActionView::DependencyTracker::RubyTracker
+              else
+                ActionView::DependencyTracker::ERBTracker
+              end
               ActionView::DependencyTracker.register_tracker :slim, tracker
             rescue
               # likely this version of Rails doesn't support dependency tracking
