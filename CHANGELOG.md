@@ -1,3 +1,18 @@
+## 4.0.1 (September 19, 2026)
+
+- Align Rails dependencies with supported versions ([#221])
+  - Drop Support for Rails 6.1 and older
+- Remove legacy Rails 6.1 and older support code ([#223])
+- Preserve Sprockets context dependency metadata ([#217])
+- Track compiled Slim render calls in template digests ([#220])
+- Generate valid block markup for attachment collections ([#218])
+- Update gemspec metadata and remove unused development dependencies ([#213])
+- CI: Restrict GitHub Actions workflow permissions to contents: read ([#215])
+- CI: Add Ruby 4.0 to CI Matrix ([#212])
+- CI: Fix CI failures with minitest v6 ([#210])
+- CI: Update Appraisals definitions for maintainability ([#209])
+- Fix RuboCop config for development environment ([#211])
+
 ## 4.0.0 (December 11, 2025)
 
 - Add support for Rails Annotations and CodeStatistics ([#206])
